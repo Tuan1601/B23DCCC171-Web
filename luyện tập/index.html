@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản Lý Sinh Viên</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Quản Lý Sinh Viên</h2>
+        <form id="student-form">
+            <input type="text" id="student-id" placeholder="Mã Sinh Viên" required>
+            <input type="text" id="student-name" placeholder="Họ Tên" required>
+            <select id="student-gender">
+                <option value="Nam">Nam</option>
+                <option value="Nữ">Nữ</option>
+            </select>
+            <input type="date" id="student-dob" required>
+            <input type="text" id="student-hometown" placeholder="Quê Quán" required>
+            <button type="button" id="add-student">Thêm Sinh Viên</button>
+        </form>
+        <table>
+            <thead>
+                <tr>
+                    <th>Mã Sinh Viên</th>
+                    <th>Họ Tên</th>
+                    <th>Giới Tính</th>
+                    <th>Ngày Sinh</th>
+                    <th>Quê Quán</th>
+                    <th>Hành Động</th>
+                </tr>
+            </thead>
+            <tbody id="student-table">
+            </tbody>
+        </table>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
