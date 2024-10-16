@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Task from './Task';
 import AddTask from './AddTask';
-import './App.css';  // Thêm các style cần thiết
+import './App.css';  
 
 function App() {
     const [tasks, setTasks] = useState([
