@@ -1,0 +1,70 @@
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; // Chiều cao toàn màn hình
+    background: linear-gradient(135deg, #2c3e50, #4ca1af); // Gradient nền đẹp mắt
+    font-family: 'Arial', sans-serif;
+  
+    form {
+      background: #ffffff; // Nền form
+      padding: 40px 30px;
+      border-radius: 10px; // Bo góc
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); // Hiệu ứng đổ bóng
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+  
+      h2 {
+        margin-bottom: 20px;
+        font-size: 24px;
+        color: #2c3e50; // Màu chữ tiêu đề
+      }
+  
+      input {
+        width: 310px;
+        padding: 12px 15px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+        color: #333; // Đảm bảo chữ dễ nhìn
+        background: #f9f9f9;
+        transition: border-color 0.3s;
+  
+        &:focus {
+          border-color: #4ca1af; // Màu viền khi focus
+          outline: none;
+          box-shadow: 0 0 5px rgba(76, 161, 175, 0.5); // Hiệu ứng ánh sáng
+        }
+  
+        &::placeholder {
+          color: #aaa; // Màu placeholder
+        }
+      }
+  
+      .error {
+        color: #e74c3c; // Màu đỏ thông báo lỗi
+        font-size: 14px;
+        margin-bottom: 10px;
+      }
+  
+      button {
+        width: 340px;
+        padding: 12px 15px;
+        border: none;
+        border-radius: 5px;
+        background: #4ca1af; // Màu nền nút
+        color: #ffffff;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s;
+  
+        &:hover {
+          background: #2c3e50; // Màu nền khi hover
+        }
+      }
+    }
+  }
+  

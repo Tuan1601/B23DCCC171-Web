@@ -14,7 +14,6 @@ exports.createTodo = (req, res) => {
         res.status(201).json({message: 'Todo created successfully'});
     });
 };
-
 exports.updateTodo = (req, res) => {
     const { id } = req.params;
     const { title, description, due_date, completed } = req.body;
@@ -23,7 +22,6 @@ exports.updateTodo = (req, res) => {
         res.status(200).json({message: 'Todo updated successfully'});
     });
 };
-
 exports.deleteTodo = (req, res) => {
     const { id } = req.params;
     Todo.delete(id, (err, result) => {

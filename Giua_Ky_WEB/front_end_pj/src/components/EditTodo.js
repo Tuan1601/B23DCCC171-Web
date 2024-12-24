@@ -2,15 +2,15 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 const EditTodo = ({ todo, onUpdate }) => {
+  const formattedDueDate = todo.due_date ? new Date(todo.due_date).toISOString().substring(0, 10) : '';
   const [title, setTitle] = useState(todo.title);
   const [description, setDescription] = useState(todo.description);
-  const [dueDate, setDueDate] = useState(todo.due_date);
-
+  const [dueDate, setDueDate] = useState(formattedDueDate);
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const updatedTodo = { ...todo, title, description, due_date: dueDate };
-
     try {
       await axios.put(`http://localhost:3000/api/todos/${todo.id}`, updatedTodo);
       onUpdate(updatedTodo); 
