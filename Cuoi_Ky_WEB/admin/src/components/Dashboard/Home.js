@@ -16,7 +16,7 @@ const Home = () => {
         if (error.response && error.response.status === 401) {
           alert('Token hết hạn, vui lòng đăng nhập lại.');
           localStorage.removeItem('token');
-          window.location.href = '/login'; // Redirect to login page
+          window.location.href = '/login'; 
         } else {
           console.error('Error fetching stats:', error);
         }

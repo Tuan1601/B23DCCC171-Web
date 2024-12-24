@@ -36,14 +36,13 @@ const Sidebar = () => {
     fetchProfile();
   }, []);
 
-  // Fetch thông tin người dùng khi component mount
   useEffect(() => {
     const token = localStorage.getItem('token');
     
     if (token) {
       getProfile()
         .then(response => {
-          setUser(response.data); // Lưu thông tin người dùng vào state
+          setUser(response.data); 
           setLoading(false);
         })
         .catch(error => {
@@ -52,14 +51,14 @@ const Sidebar = () => {
           setLoading(false);
         });
     } else {
-      setLoading(false); // Nếu không có token thì dừng loading
+      setLoading(false); 
     }
   }, []);
 
   const handleLogout = () => {
-    localStorage.removeItem('token'); // Xóa token khỏi localStorage
-    setUser(null); // Xóa thông tin người dùng trong state
-    navigate('/login'); // Chuyển hướng đến trang đăng nhập
+    localStorage.removeItem('token'); 
+    setUser(null); 
+    navigate('/login'); 
   };
 
   if (loading) {

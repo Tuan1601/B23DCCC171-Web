@@ -16,7 +16,7 @@ export const loginUser = async (credentials) => {
     }
 
     const data = await response.json();
-    return data; // Trả lại dữ liệu token từ server
+    return data; 
   } catch (error) {
     return { error: 'Không thể kết nối với server' };
   }
@@ -38,7 +38,7 @@ export const registerUser = async (userDetails) => {
     }
 
     const data = await response.json();
-    return data; // Trả lại dữ liệu khi đăng ký thành công
+    return data; 
   } catch (error) {
     return { error: 'Không thể kết nối với server' };
   }

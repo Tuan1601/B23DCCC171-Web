@@ -15,10 +15,10 @@ const LoginForm = () => {
     const data = await loginUser({ username, password });
 
     if (data.error) {
-      setError(data.error);  // Hiển thị lỗi nếu có
+      setError(data.error); 
     } else {
-      localStorage.setItem('token', data.token); // Lưu token vào localStorage
-      navigate('/dashboard'); // Chuyển hướng đến trang dashboard sau khi đăng nhập thành công
+      localStorage.setItem('token', data.token); 
+      navigate('/dashboard'); 
     }
   };
 

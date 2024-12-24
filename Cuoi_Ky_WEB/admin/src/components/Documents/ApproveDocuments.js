@@ -6,7 +6,7 @@ import "../../styles/documents.scss";
 const ApproveDocuments = () => {
   const [documents, setDocuments] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const documentsPerPage = 10; // Số tài liệu trên mỗi trang
+  const documentsPerPage = 10; 
 
   useEffect(() => {
     const fetchUnapprovedDocuments = async () => {
@@ -26,7 +26,6 @@ const ApproveDocuments = () => {
     }
   };
 
-  // Tính toán tài liệu hiện tại
   const indexOfLastDocument = currentPage * documentsPerPage;
   const indexOfFirstDocument = indexOfLastDocument - documentsPerPage;
   const currentDocuments = documents.slice(
@@ -34,7 +33,6 @@ const ApproveDocuments = () => {
     indexOfLastDocument
   );
 
-  // Tạo nút phân trang
   const totalPages = Math.ceil(documents.length / documentsPerPage);
   const pageNumbers = Array.from({ length: totalPages }, (_, i) => i + 1);
 

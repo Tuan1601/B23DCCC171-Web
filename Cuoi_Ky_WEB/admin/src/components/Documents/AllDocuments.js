@@ -9,7 +9,7 @@ const AllDocuments = () => {
   const [searchQuerySubject, setSearchQuerySubject] = useState("");
   const [sortedDocuments, setSortedDocuments] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const documentsPerPage = 10; // Số tài liệu trên mỗi trang
+  const documentsPerPage = 10; 
 
   useEffect(() => {
     const fetchDocuments = async () => {
@@ -25,7 +25,7 @@ const AllDocuments = () => {
       doc.title.toLowerCase().includes(searchQueryTitle.toLowerCase())
     );
     setSortedDocuments(filteredDocuments);
-    setCurrentPage(1); // Reset trang hiện tại
+    setCurrentPage(1); 
   };
 
   const handleSearchBySubject = () => {
@@ -33,7 +33,7 @@ const AllDocuments = () => {
       doc.subject_name.toLowerCase().includes(searchQuerySubject.toLowerCase())
     );
     setSortedDocuments(filteredDocuments);
-    setCurrentPage(1); // Reset trang hiện tại
+    setCurrentPage(1); 
   };
 
   const handleSortBySubject = () => {
@@ -43,7 +43,6 @@ const AllDocuments = () => {
     setSortedDocuments(sorted);
   };
 
-  // Tính toán tài liệu hiện tại
   const indexOfLastDocument = currentPage * documentsPerPage;
   const indexOfFirstDocument = indexOfLastDocument - documentsPerPage;
   const currentDocuments = sortedDocuments.slice(
@@ -51,7 +50,6 @@ const AllDocuments = () => {
     indexOfLastDocument
   );
 
-  // Tạo nút phân trang
   const totalPages = Math.ceil(sortedDocuments.length / documentsPerPage);
   const pageNumbers = Array.from({ length: totalPages }, (_, i) => i + 1);
 

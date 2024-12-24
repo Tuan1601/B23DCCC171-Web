@@ -11,19 +11,19 @@ pdfjs.GlobalWorkerOptions.workerSrc = '/pdf.worker.min.js';
 
 const Home = () => {
   const [documents, setDocuments] = useState([]);
-  const [filteredDocuments, setFilteredDocuments] = useState([]); // Danh sách tài liệu đã lọc
+  const [filteredDocuments, setFilteredDocuments] = useState([]); 
   const [loading, setLoading] = useState(true);
-  const [selectedDocument, setSelectedDocument] = useState(null); // Lưu tài liệu được chọn để xem chi tiết
-  const [searchTerm, setSearchTerm] = useState(''); // Từ khóa tìm kiếm
-  const [currentPage, setCurrentPage] = useState(1); // Trang hiện tại
-  const documentsPerPage = 4; // Số lượng tài liệu mỗi trang
+  const [selectedDocument, setSelectedDocument] = useState(null); 
+  const [searchTerm, setSearchTerm] = useState(''); 
+  const [currentPage, setCurrentPage] = useState(1); 
+  const documentsPerPage = 4; 
 
   useEffect(() => {
     const fetchDocuments = async () => {
       try {
-        const data = await getDocuments(); // Lấy tài liệu từ API
-        setDocuments(data); // Cập nhật state documents
-        setFilteredDocuments(data); // Ban đầu danh sách đã lọc giống danh sách gốc
+        const data = await getDocuments(); 
+        setDocuments(data); 
+        setFilteredDocuments(data);
         setLoading(false);
       } catch (error) {
         console.error('Lỗi khi lấy tài liệu:', error);
@@ -31,7 +31,7 @@ const Home = () => {
       }
     };
     fetchDocuments();
-  }, []); // Chạy một lần khi component được mount
+  }, []); 
 
   const handleDownload = async (id) => {
     try {
@@ -67,10 +67,9 @@ const Home = () => {
       );
       setFilteredDocuments(filtered);
     }
-    setCurrentPage(1); // Reset về trang đầu khi tìm kiếm
+    setCurrentPage(1); 
   };
 
-  // Lấy danh sách tài liệu cho trang hiện tại
   const indexOfLastDocument = currentPage * documentsPerPage;
   const indexOfFirstDocument = indexOfLastDocument - documentsPerPage;
   const currentDocuments = filteredDocuments.slice(indexOfFirstDocument, indexOfLastDocument);
@@ -126,7 +125,6 @@ const Home = () => {
                 <p>Không có tài liệu nào phù hợp.</p>
               )}
             </ul>
-            {/* Hiển thị phân trang */}
             <div className="pagination">
               {[...Array(totalPages)].map((_, index) => (
                 <button

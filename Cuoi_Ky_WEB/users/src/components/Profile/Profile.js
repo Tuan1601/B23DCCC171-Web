@@ -10,7 +10,7 @@ const Profile = () => {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const token = localStorage.getItem('token'); // or get it from wherever you store the token
+        const token = localStorage.getItem('token'); 
         const { data } = await axios.get('http://localhost:3000/api/auth/profile', {
           headers: {
             'Authorization': `Bearer ${token}`,
@@ -21,7 +21,7 @@ const Profile = () => {
         if (error.response && error.response.status === 401) {
           alert('Token is expired or invalid. Please log in again.');
           localStorage.removeItem('token');
-          window.location.href = '/login'; // Redirect to login page
+          window.location.href = '/login'; 
         } else {
           console.error('Error fetching profile:', error);
         }

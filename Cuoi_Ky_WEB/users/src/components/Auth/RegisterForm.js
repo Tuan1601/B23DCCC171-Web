@@ -24,7 +24,7 @@ const RegisterForm = () => {
     if (data.error) {
       setError(data.error);
     } else {
-      navigate('/login'); // Sau khi đăng ký thành công, chuyển hướng đến trang login
+      navigate('/login'); 
     }
   };
 

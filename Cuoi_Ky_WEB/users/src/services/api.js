@@ -1,13 +1,11 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'http://localhost:3000/api', // URL của backend
+  baseURL: 'http://localhost:3000/api', 
 });
 
-// Hàm lấy token từ localStorage
 const getToken = () => localStorage.getItem('token');
 
-// Hàm xử lý thêm token vào các yêu cầu API
 const addAuthHeader = (config) => {
   const token = getToken();
   if (token) {
@@ -16,14 +14,13 @@ const addAuthHeader = (config) => {
   return config;
 };
 
-// Sử dụng interceptor để thêm token vào tất cả các yêu cầu
 api.interceptors.request.use(addAuthHeader);
 
 export const login = async (credentials) => {
   try {
     const response = await api.post('/auth/login', credentials);
-    const token = response.data.token;  // Giả sử API trả về token trong `data.token`
-    localStorage.setItem('token', token);  // Lưu token vào localStorage
+    const token = response.data.token;  
+    localStorage.setItem('token', token);  
     return response;
   } catch (error) {
     throw new Error('Đăng nhập thất bại');
@@ -48,9 +45,8 @@ export const uploadDocument = async (data) => {
 export const getUnapprovedDocuments = () => api.get('/approvals/unapproved');
 export const approveDocument = (id, status, reason) =>
   api.post('/approvals/approve', { document_id: id, status, reason });
-// api.js (where you make the Axios request)
 export const getStats = () => {
-  const token = localStorage.getItem('token'); // Get token from localStorage
+  const token = localStorage.getItem('token'); 
 
   if (!token) {
     throw new Error('Token không tồn tại. Vui lòng đăng nhập lại!');
@@ -58,7 +54,7 @@ export const getStats = () => {
 
   return api.get('/dashboard/stats', {
     headers: {
-      Authorization: `Bearer ${token}`  // Add the token in the header
+      Authorization: `Bearer ${token}`  
     }
   });
 };
@@ -68,18 +64,17 @@ export const getProfile = () => api.get('/auth/profile');
 
 export const getDocuments = async () => {
     try {
-      const response = await api.get('/documents'); // Dùng instance api đã cấu hình sẵn
-      return response.data;  // Trả về dữ liệu API
+      const response = await api.get('/documents'); 
+      return response.data;  
     } catch (error) {
       console.error('Lỗi khi lấy tài liệu:', error);
-      throw error;  // Thông báo lỗi cho component gọi
+      throw error;  
     }
   };
   
-// Thêm vào api.js để tải tài liệu
 export const handleDownload = async (id, fileName) => {
     try {
-      console.log('Downloading file:', id, fileName); // Debug thông tin
+      console.log('Downloading file:', id, fileName); 
       const response = await axios.get(`http://localhost:3000/api/documents/download/${id}`, {
         responseType: 'blob',
       });
@@ -92,7 +87,7 @@ export const handleDownload = async (id, fileName) => {
       link.click();
       link.remove();
     } catch (error) {
-      console.error('Lỗi khi tải tài liệu:', error); // In lỗi rõ ràng
+      console.error('Lỗi khi tải tài liệu:', error); 
     }
   };
 

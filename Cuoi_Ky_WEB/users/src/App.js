@@ -19,7 +19,6 @@ const App = () => {
         <Route path="/profile" element={<Profile />} />
 
 
-        {/* Thêm các route khác ở đây */}
       </Routes>
     </Router>
   );
